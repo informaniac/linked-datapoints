@@ -25,10 +25,20 @@ namespace LDPDatapoints.Resources
             RequestListener.OnGet += onGet;
             RequestListener.OnPut += onPut;
             RequestListener.OnPost += onPost;
+            RequestListener.OnHead += onHead;
+            RequestListener.OnPatch += onPatch;
+            RequestListener.OnDelete += onDelete;
+            RequestListener.OnConnect += onConnect;
+            RequestListener.OnOptions += onOptions;
         }
 
         protected abstract void onGet(object sender, HttpEventArgs e);
         protected abstract void onPut(object sender, HttpEventArgs e);
         protected abstract void onPost(object sender, HttpEventArgs e);
+        protected abstract void onHead(object sender, HttpEventArgs e);
+        protected abstract void onPatch(object sender, HttpEventArgs e);
+        protected abstract void onDelete(object sender, HttpEventArgs e);
+        protected abstract void onConnect(object sender, HttpEventArgs e);
+        protected abstract void onOptions(object sender, HttpEventArgs e);
     }
 }

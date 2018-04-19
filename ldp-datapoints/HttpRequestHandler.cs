@@ -38,6 +38,11 @@ namespace LDPDatapoints
         public event EventHandler<HttpEventArgs> OnGet;
         public event EventHandler<HttpEventArgs> OnPut;
         public event EventHandler<HttpEventArgs> OnPost;
+        public event EventHandler<HttpEventArgs> OnHead;
+        public event EventHandler<HttpEventArgs> OnPatch;
+        public event EventHandler<HttpEventArgs> OnDelete;
+        public event EventHandler<HttpEventArgs> OnConnect;
+        public event EventHandler<HttpEventArgs> OnOptions;
 
         public HttpRequestListener(string path)
         {
@@ -67,13 +72,33 @@ namespace LDPDatapoints
                 {
                     OnGet?.Invoke(this, eventArgs);
                 }
+                else if (method == HttpMethod.Put.Method)
+                {
+                    OnPut?.Invoke(this, eventArgs);
+                }
                 else if (method == HttpMethod.Post.Method)
                 {
                     OnPost?.Invoke(this, eventArgs);
                 }
-                else if (method == HttpMethod.Put.Method)
+                else if (method == HttpMethod.Head.Method)
                 {
-                    OnPut?.Invoke(this, eventArgs);
+                    OnHead?.Invoke(this, eventArgs);
+                }
+                else if (method.Equals("PATCH"))
+                {
+                    OnPatch?.Invoke(this, eventArgs);
+                }
+                else if (method == HttpMethod.Delete.Method)
+                {
+                    OnDelete?.Invoke(this, eventArgs);
+                }
+                else if (method == HttpMethod.Options.Method)
+                {
+                    OnOptions?.Invoke(this, eventArgs);
+                }
+                else if (method.Equals("CONNECT"))
+                {
+                    OnConnect?.Invoke(this, eventArgs);
                 }
             }
             catch (NotImplementedException)

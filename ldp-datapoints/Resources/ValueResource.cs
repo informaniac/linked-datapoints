@@ -92,5 +92,30 @@ namespace LDPDatapoints.Resources
         {
             throw new NotImplementedException();
         }
+
+        protected override void onHead(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onPatch(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onDelete(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onConnect(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void onOptions(object sender, HttpEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
